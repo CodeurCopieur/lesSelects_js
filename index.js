@@ -22,9 +22,20 @@ const tabPrices = [
  * @class controlSelect
  */
 class controlSelect {
+  
+  /**
+ * @type {Object<HTMLSelectElement>}
+ */
   #items
+  /**
+ * @type {Array<HTMLElement>}
+ */
   #lesOptions
 
+  /**
+   * 
+   * @param {Array<HTMLSelectElement>} lesSelects 
+   */
   constructor(lesSelects) {
     this.#items = lesSelects
   }
@@ -42,14 +53,16 @@ class controlSelect {
       
       item.addEventListener('change', (e)=> this.#initPrice(item))
       
-      
+      /**
+       * @type {Array<HTMLElement>}
+       */
       this.#lesOptions = Array.from(item.querySelectorAll('option'))
-      console.log(this.#lesOptions);
 
       this.#initAttribut(this.#lesOptions)
       
     })
 
+    /** @type {object} selectOption */
     var selectOption = localStorage.getItem('selectOption', selectOption)
 
     if (selectOption) {
@@ -60,7 +73,10 @@ class controlSelect {
 
     
   }
-
+  /**
+   * 
+   * @param {Array<HTMLOptionElement>} lesElts 
+   */
   #initAttribut(lesElts) {
 
     if (lesElts) {
@@ -78,14 +94,17 @@ class controlSelect {
       })
     }
   }
-
+  /**
+   * 
+   * @param {HTMLELEMENT} item 
+   */
   #initPrice(item) {
      /**
-    * @type {string}
+    * @type {string} selectValue
     */
     var selectValue = item.options[item.selectedIndex].value
     /**
-     * @type {object}
+     * @type {HTMLELEMENT} target
      */
     var target = item
 
@@ -113,6 +132,8 @@ class controlSelect {
   #updateTarifs(tabTarifs) {
 
     for (let index = 0; index < this.#items.length; index++) {
+
+      /** @type {HTMLELEMENT} element */
       const element = this.#items[index];
 
       var eltPrice = element.parentElement.nextElementSibling;
@@ -155,11 +176,9 @@ class controlSelect {
 
 
 addEventListener('load', function () {
-  /** @type {*} */
+  /** @type {Array<HTMLSelectElement>} items */
   const items = Array.from(document.querySelectorAll('select[data-select]'))
   
-  // items.forEach( item => {
     new controlSelect(items)
       .selectChange()
-  // })
 })
