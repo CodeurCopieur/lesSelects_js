@@ -24,3 +24,8 @@ npm install --save-dev @babel/core @babel/cli @babel/preset-env
   npx babel src/**/*.js --out-dir dist
 ```
 
+* Exécuter le script de surveillance :
+  
+```
+node watch.js
+```
