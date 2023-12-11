@@ -111,11 +111,11 @@ class controlSelect {
     localStorage.setItem('selectOption', selectValue)
 
     if (selectValue === 'option1') {
-      this.#updateTarifs(['2,00', '3,00', '13,00']) 
+      this.#updateTarifs([tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]]) 
     } else if(selectValue === 'option2') {
-      this.#updateTarifs(['5,76', '6,32', '14,90']) 
+      this.#updateTarifs([tabPrices[0]["price2"], tabPrices[1]["price2"], tabPrices[2]["price2"]]) 
     } else {
-      this.#updateTarifs(['7,20', '7,90', '14,90']) 
+      this.#updateTarifs([tabPrices[0]["price3"], tabPrices[1]["price3"], tabPrices[2]["price3"]]) 
     }
 
 
@@ -152,15 +152,15 @@ class controlSelect {
         this.#items[key].value = value
 
         if (value === 'option1') {
-          this.#updateTarifs(['3,00', '3,00', '13,00']) 
+          this.#updateTarifs([tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]]) 
         } else if(value === 'option2') {
-          this.#updateTarifs(['5,76', '6,32', '14,90']) 
+          this.#updateTarifs([tabPrices[0]["price2"], tabPrices[1]["price2"], tabPrices[2]["price2"]]) 
         }else {
-          this.#updateTarifs(['7,20', '7,90', '14,90'])
+          this.#updateTarifs([tabPrices[0]["price3"], tabPrices[1]["price3"], tabPrices[2]["price3"]])
         }
       } else {
         this.#items[key].value = 'option1'
-        this.#updateTarifs(['3,00', '3,00', '13,00']) 
+        this.#updateTarifs([tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]]) 
       }
     }
   }

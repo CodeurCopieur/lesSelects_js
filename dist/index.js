@@ -141,11 +141,11 @@ function _initPrice2(item) {
   var target = item;
   localStorage.setItem('selectOption', selectValue);
   if (selectValue === 'option1') {
-    _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, ['2,00', '3,00', '13,00']);
+    _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]]);
   } else if (selectValue === 'option2') {
-    _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, ['5,76', '6,32', '14,90']);
+    _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price2"], tabPrices[1]["price2"], tabPrices[2]["price2"]]);
   } else {
-    _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, ['7,20', '7,90', '14,90']);
+    _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price3"], tabPrices[1]["price3"], tabPrices[2]["price3"]]);
   }
   var others = _classPrivateFieldGet(this, _items).filter(function (item) {
     return item !== target;
@@ -168,15 +168,15 @@ function _ifselectOption2(value) {
     if (value) {
       _classPrivateFieldGet(this, _items)[key].value = value;
       if (value === 'option1') {
-        _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, ['3,00', '3,00', '13,00']);
+        _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]]);
       } else if (value === 'option2') {
-        _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, ['5,76', '6,32', '14,90']);
+        _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price2"], tabPrices[1]["price2"], tabPrices[2]["price2"]]);
       } else {
-        _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, ['7,20', '7,90', '14,90']);
+        _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price3"], tabPrices[1]["price3"], tabPrices[2]["price3"]]);
       }
     } else {
       _classPrivateFieldGet(this, _items)[key].value = 'option1';
-      _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, ['3,00', '3,00', '13,00']);
+      _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]]);
     }
   }
 }
