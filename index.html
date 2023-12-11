@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Stylisé les selects</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Stylisé les selects</title>
+  </head>
+  <body>
+    <div class="select-container">
+      <label for="select1">Select 1:</label>
+      <div>
+        <select id="select1" class="custom-select" data-select>
+          <option value="option1">J'ai entre 18 et 24 ans</option>
+          <option value="option2">J'ai entre 25 et 29 ans</option>
+          <option value="option3">J'ai plus de 30 ans</option>
+        </select>
+      </div>
+      <div class="price" id="price1">Prix: <span>0</span> $</div>
+    </div>
 
-  <div class="select-container">
-    <label for="select1">Select 1:</label>
-    <div><select id="select1" class="custom-select" data-select>
-      <option value="option1">J'ai entre 18 et 24 ans</option>
-      <option value="option2">J'ai entre 25 et 29 ans</option>
-      <option value="option3">J'ai plus de 30 ans</option>
-    </select></div>
-    <div class="price" id="price1">Prix: <span>0</span> $</div>
-  </div>
+    <div class="select-container">
+      <label for="select2">Select 2:</label>
+      <div>
+        <select id="select2" class="custom-select" data-select>
+          <option value="option1">J'ai entre 18 et 24 ans</option>
+          <option value="option2">J'ai entre 25 et 29 ans</option>
+          <option value="option3">J'ai plus de 30 ans</option>
+        </select>
+      </div>
+      <div class="price" id="price1">Prix: <span>0</span> $</div>
+    </div>
 
-  <div class="select-container">
-    <label for="select2">Select 2:</label>
-    <div><select id="select2" class="custom-select" data-select>
-      <option value="option1">J'ai entre 18 et 24 ans</option>
-      <option value="option2">J'ai entre 25 et 29 ans</option>
-      <option value="option3">J'ai plus de 30 ans</option>
-    </select></div>
-    <div class="price" id="price1">Prix: <span>0</span> $</div>
-  </div>
+    <div class="select-container">
+      <label for="select3">Select 3:</label>
+      <div>
+        <select id="select3" class="custom-select" data-select>
+          <option value="option1">J'ai entre 18 et 24 ans</option>
+          <option value="option2">J'ai entre 25 et 29 ans</option>
+          <option value="option3">J'ai plus de 30 ans</option>
+        </select>
+      </div>
+      <div class="price" id="price1">Prix: <span>0</span> $</div>
+    </div>
 
-  <div class="select-container">
-    <label for="select3">Select 3:</label>
-    <div><select id="select3" class="custom-select" data-select>
-      <option value="option1">J'ai entre 18 et 24 ans</option>
-      <option value="option2">J'ai entre 25 et 29 ans</option>
-      <option value="option3">J'ai plus de 30 ans</option>
-    </select></div>
-    <div class="price" id="price1">Prix: <span>0</span> $</div>
-  </div>
-
-  <script src="./index.js"></script>
-</body>
+    <script src="./dist/index.js"></script>
+  </body>
 </html>
