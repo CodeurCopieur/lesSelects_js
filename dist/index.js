@@ -80,13 +80,6 @@ var controlSelect = /*#__PURE__*/function () {
     value: function selectChange() {
       var _this = this;
       _classPrivateFieldGet(this, _items).forEach(function (item, i) {
-        if (i === 0) {
-          item.dataset.offres = "cb-visa-evolution";
-        } else if (i === 1) {
-          item.dataset.offres = "cb-visa-classic";
-        } else {
-          item.dataset.offres = "cb-visa-premier";
-        }
         item.addEventListener('change', function (e) {
           return _classPrivateMethodGet(_this, _initPrice, _initPrice2).call(_this, item);
         });
@@ -114,13 +107,10 @@ function _initAttribut2(lesElts) {
     lesElts.forEach(function (elt, i) {
       if (i === 0) {
         elt.dataset.price = tabPrices[i]["price1"];
-        elt.dataset.age = "18-24";
       } else if (i === 1) {
         elt.dataset.price = tabPrices[i]["price2"];
-        elt.dataset.age = "25-29";
       } else {
         elt.dataset.price = tabPrices[i]["price3"];
-        elt.dataset.age = "30-et-plus";
       }
     });
   }
@@ -157,7 +147,6 @@ function _updateTarifs2(tabTarifs, text) {
     var price = eltPrice.firstElementChild;
     var link = eltPrice.nextElementSibling;
     link.textContent = "productId=10".concat(index + 1, "&ageId=").concat(text);
-    console.log(link);
     price.textContent = tabTarifs[index] + ' €';
   }
 }
