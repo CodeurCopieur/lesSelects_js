@@ -111,11 +111,11 @@ class controlSelect {
     localStorage.setItem('selectOption', selectValue)
 
     if (selectValue === 'option1') {
-      this.#updateTarifs([tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]]) 
+      this.#updateTarifs([tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]], '18-24') 
     } else if(selectValue === 'option2') {
-      this.#updateTarifs([tabPrices[0]["price2"], tabPrices[1]["price2"], tabPrices[2]["price2"]]) 
+      this.#updateTarifs([tabPrices[0]["price2"], tabPrices[1]["price2"], tabPrices[2]["price2"]], '25-29') 
     } else {
-      this.#updateTarifs([tabPrices[0]["price3"], tabPrices[1]["price3"], tabPrices[2]["price3"]]) 
+      this.#updateTarifs([tabPrices[0]["price3"], tabPrices[1]["price3"], tabPrices[2]["price3"]], '30-99') 
     }
 
 
@@ -129,7 +129,7 @@ class controlSelect {
 
   }
 
-  #updateTarifs(tabTarifs) {
+  #updateTarifs(tabTarifs, text) {
 
     for (let index = 0; index < this.#items.length; index++) {
 
@@ -138,6 +138,10 @@ class controlSelect {
 
       var eltPrice = element.parentElement.nextElementSibling;
       var price = eltPrice.firstElementChild;
+      var link = eltPrice.nextElementSibling;
+
+      link.textContent = `productId=10${index+1}&ageId=${text}`
+      console.log(link);
   
       price.textContent = tabTarifs[index] + ' €'
     }
@@ -152,28 +156,19 @@ class controlSelect {
         this.#items[key].value = value
 
         if (value === 'option1') {
-          this.#updateTarifs([tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]]) 
+          this.#updateTarifs([tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]], '18-24') 
         } else if(value === 'option2') {
-          this.#updateTarifs([tabPrices[0]["price2"], tabPrices[1]["price2"], tabPrices[2]["price2"]]) 
+          this.#updateTarifs([tabPrices[0]["price2"], tabPrices[1]["price2"], tabPrices[2]["price2"]], '25-29') 
         }else {
-          this.#updateTarifs([tabPrices[0]["price3"], tabPrices[1]["price3"], tabPrices[2]["price3"]])
+          this.#updateTarifs([tabPrices[0]["price3"], tabPrices[1]["price3"], tabPrices[2]["price3"]], '30-99')
         }
       } else {
         this.#items[key].value = 'option1'
-        this.#updateTarifs([tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]]) 
+        this.#updateTarifs([tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]], '18-24') 
       }
     }
   }
-
-  // #foundEltPrice(elt) {
-  //   var priceSelectDefault = elt.options[elt.selectedIndex].dataset.price;
-  //   var eltPrice = elt.parentElement.nextElementSibling;
-  //   var price = eltPrice.firstElementChild;
-
-  //   price.innerHTML = priceSelectDefault
-  // }
 }
-
 
 addEventListener('load', function () {
   /** @type {Array<HTMLSelectElement>} items */

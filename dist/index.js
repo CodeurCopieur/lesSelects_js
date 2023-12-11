@@ -105,12 +105,7 @@ var controlSelect = /*#__PURE__*/function () {
       } else {
         _classPrivateMethodGet(this, _ifselectOption, _ifselectOption2).call(this, undefined);
       }
-    } // #foundEltPrice(elt) {
-    //   var priceSelectDefault = elt.options[elt.selectedIndex].dataset.price;
-    //   var eltPrice = elt.parentElement.nextElementSibling;
-    //   var price = eltPrice.firstElementChild;
-    //   price.innerHTML = priceSelectDefault
-    // }
+    }
   }]);
   return controlSelect;
 }();
@@ -141,11 +136,11 @@ function _initPrice2(item) {
   var target = item;
   localStorage.setItem('selectOption', selectValue);
   if (selectValue === 'option1') {
-    _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]]);
+    _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]], '18-24');
   } else if (selectValue === 'option2') {
-    _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price2"], tabPrices[1]["price2"], tabPrices[2]["price2"]]);
+    _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price2"], tabPrices[1]["price2"], tabPrices[2]["price2"]], '25-29');
   } else {
-    _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price3"], tabPrices[1]["price3"], tabPrices[2]["price3"]]);
+    _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price3"], tabPrices[1]["price3"], tabPrices[2]["price3"]], '30-99');
   }
   var others = _classPrivateFieldGet(this, _items).filter(function (item) {
     return item !== target;
@@ -154,12 +149,15 @@ function _initPrice2(item) {
     others[key].value = target.value;
   }
 }
-function _updateTarifs2(tabTarifs) {
+function _updateTarifs2(tabTarifs, text) {
   for (var index = 0; index < _classPrivateFieldGet(this, _items).length; index++) {
     /** @type {HTMLELEMENT} element */
     var element = _classPrivateFieldGet(this, _items)[index];
     var eltPrice = element.parentElement.nextElementSibling;
     var price = eltPrice.firstElementChild;
+    var link = eltPrice.nextElementSibling;
+    link.textContent = "productId=10".concat(index + 1, "&ageId=").concat(text);
+    console.log(link);
     price.textContent = tabTarifs[index] + ' €';
   }
 }
@@ -168,15 +166,15 @@ function _ifselectOption2(value) {
     if (value) {
       _classPrivateFieldGet(this, _items)[key].value = value;
       if (value === 'option1') {
-        _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]]);
+        _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]], '18-24');
       } else if (value === 'option2') {
-        _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price2"], tabPrices[1]["price2"], tabPrices[2]["price2"]]);
+        _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price2"], tabPrices[1]["price2"], tabPrices[2]["price2"]], '25-29');
       } else {
-        _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price3"], tabPrices[1]["price3"], tabPrices[2]["price3"]]);
+        _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price3"], tabPrices[1]["price3"], tabPrices[2]["price3"]], '30-99');
       }
     } else {
       _classPrivateFieldGet(this, _items)[key].value = 'option1';
-      _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]]);
+      _classPrivateMethodGet(this, _updateTarifs, _updateTarifs2).call(this, [tabPrices[0]["price1"], tabPrices[1]["price1"], tabPrices[2]["price1"]], '18-24');
     }
   }
 }
